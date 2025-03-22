@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date</title>
+  <link rel="stylesheet" href="./css/time.css">
+  <style>
+    .popup {
+      position: fixed;
+      top: -100%; 
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      color: rgba(253, 24, 83, 255);
+      padding: 20px;
+      border: 1px solid rgba(253, 24, 83, 255);
+      border-radius: 8px;
+      display: none;
+      font-size: 1.5em;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: top 0.5s ease-in-out;
+    }
+
+    .popup.show {
+      display: block;
+      top: 10%;
+      transition-delay: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="time-text">
+    <h1>When are you free?</h1>
+  </div>
+
+  <!-- Form Setup -->
+  <form id="dateForm">
+    <div class="input">
+      <input type="date" class="input-field" id="dateInput" name="date" required>
+      <input type="time" class="input-field" id="timeInput" name="time" required>
+    </div>
+    <button type="submit" id="submitButton">Submit (づ￣ ³￣)づ</button>
+  </form>
+
+  <!-- Popups -->
+  <div class="popup" id="errorPopup">
+    Please select both date and time 😭😭. (╥_╥)
+  </div>
+
+  <div class="popup" id="successPopup">
+    Thanks for your time. 🥰🥳
+  </div>
+
+  <script>
+    const form = document.getElementById('dateForm');
+    const dateInput = document.getElementById('dateInput');
+    const timeInput = document.getElementById('timeInput');
+    const errorPopup = document.getElementById('errorPopup');
+    const successPopup = document.getElementById('successPopup');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();  
+
+      if (!dateInput.value || !timeInput.value) {
+        // Show error popup if either field is empty
+        errorPopup.classList.add('show');
+        setTimeout(() => { errorPopup.classList.remove('show'); }, 3000);
+      } else {
+        // Submit form data using AJAX
+        fetch("https://formspree.io/f/xrbbokgn", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            date: dateInput.value,
+            time: timeInput.value
+          })
+        })
+        .then(response => {
+          if (response.ok) {
+            successPopup.classList.add('show');
+            setTimeout(() => { 
+              successPopup.classList.remove('show');
+              window.location.href = "yes2.html";  
+            }, 3000); // Redirect after 3 seconds
+          } else {
+            throw new Error("Form submission failed.");
+          }
+        })
+        .catch(error => {
+          alert("Error: " + error.message);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

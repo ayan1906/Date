@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <link rel="stylesheet" href="./css/yes3.css">
+</head>
+<body>
+    <div class="container">
+        <img src="./images/cat.gif" alt="Cat" class="cat-image">
+        <div class="title">Rate how excited are you <span class="heart"></span></div>
+        <div class="slider-container">
+            <input type="range" min="0" max="100" class="slider" id="slider">
+            <div class="hearts-above-slider" id="heartsAboveSlider"></div> <!-- Container for hearts -->
+        </div>
+        <div class="yes">
+            <a href="yes4.html">Continue ⊂(・ヮ・⊂)</a>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const heartsAboveSlider = document.getElementById('heartsAboveSlider');
+
+        slider.addEventListener('input', () => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-shape');
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '50%';
+
+            const colors = ['#ff6584', '#ff476b', '#ff9f68', '#ffcc68', '#6ac5fe'];
+            heart.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+            heartsAboveSlider.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
