@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head-text h1{
+    
+    margin-top: 20px;
+    font-size: 40px;
+    color: #f78981;
+}
+
+.image-option p{
+    color: rgba(253, 24, 83, 255);
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p{
+    color: rgba(253, 24, 83, 255);
+    font-size: 24px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3e3e4;
+}
+
+.image-selection-container {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 50px;
+    padding-top: 50px;
+}
+
+.image-selection-container2 {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 20px;
+}
+
+.image-option {
+    position: relative;
+    border-radius: 100%;
+    transition: border 0.3s, transform 0.3s;
+}
+
+.image-option img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: 0.25s ease-in-out;
+}
+
+.image-option:hover {
+    transform: scale(1.1);
+}
+
+.image-option.selected {
+    border: 10px solid rgb(224, 165, 214);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(224, 165, 214, 0.5);
+}
+
+.notification {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(253, 24, 83, 255);
+    color: rgba(253, 24, 83, 255);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    transition: top 0.5s ease, opacity 0.5s ease;
+    z-index: 10;
+}
+
+.notification.active {
+    top: 20px;
+    opacity: 1;
+}
+
+.tooltip {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(253, 24, 83, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    display: none;
+    white-space: nowrap;
+    transition: 0.25s ease-in-out;
+}
+
+.image-option:hover .tooltip {
+    display: block;
+    
+}
+
+.yes button{
+margin-left: -180px;
+margin-top: 20px;
+padding-bottom: 50px;
+position: absolute;
+padding: 10px 20px;
+background-color: rgba(253, 24, 83, 255);
+color: white;
+font-size: 28px;
+border: none;
+border-radius: 20px;
+outline: none;
+overflow: hidden;
+text-transform: uppercase;
+text-decoration: none;
+transition: 0.5s ease-in-out;
+letter-spacing: 2px;
+
+}
+
+.yes button::before, .yes button::after {
+content: '❤';
+position: absolute;
+color: #ff002f;
+font-size: 24px;
+opacity: 0;
+transition: all 0.5s ease;
+}
+
+/* Hearts animation positions */
+.yes button::before {
+top: 0;
+left: 10%;
+transform: translateY(-100%);
+}
+
+.yes button::after {
+bottom: 0;
+right: 10%;
+transform: translateY(100%);
+}
+
+/* On hover */
+.yes button:hover::before,
+.yes button:hover::after {
+opacity: 1;
+transform: translateY(0);
+}
+
+.yes button:hover {
+
+background: linear-gradient(to left , #ee9ca7, #ffdde1);
+color: rgba(253, 24, 83, 255);
+}
+
+.yes button {
+    margin-left: 200px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(253, 24, 83, 255);
+    color: white;
+    font-size: 28px;
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.yes button:hover {
+    background: linear-gradient(to left, #ee9ca7, #ffdde1);
+    color: rgba(253, 24, 83, 255);
+}

@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3e3e4;
+}
+
+.yes-image {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.yes-image img {
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.cat-image {
+    
+    margin-bottom: 30px;
+}
+
+.cat-image p {
+    
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.yes-text h1{
+    color: rgb(255, 148, 148);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.btn a{
+    margin-left: 300px;
+    margin-top: 5px;
+    position: absolute;
+    padding: 20px 50px;
+    background-color: rgba(253, 24, 83, 255);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+}
+
+.btn a::before, .btn a::after {
+    content: '❤';
+    position: absolute;
+    color: #ff002f;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Hearts animation positions */
+.btn a::before {
+    top: 0;
+    left: 10%;
+    transform: translateY(-100%);
+}
+
+.btn a::after {
+    bottom: 0;
+    right: 10%;
+    transform: translateY(100%);
+}
+
+/* On hover */
+.btn a:hover::before,
+.btn a:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn a:hover{
+    background: linear-gradient(to left , #ee9ca7, #ffdde1);
+    color: rgba(253, 24, 83, 255);
+}

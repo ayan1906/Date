@@ -1,0 +1,158 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3e3e4;
+}
+
+.container h2{
+    font-size: 48px;
+    text-align: center;
+    margin-top: 250px;
+    padding-bottom: 40px;
+    font-family: sans-serif;
+    color: #f78981;
+}
+
+.button{
+    display: block;
+    margin-left: 800px;
+    border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to left , #ee9ca7, #ffdde1);
+    position: relative;
+    padding: 20px 32px;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+
+.left-love{
+    position: absolute;
+    height: 71px;
+    width: 40px;
+    background: url(./image.png);
+    
+    left: 30%;
+    transition: 1s;
+}
+
+.right-love{
+    position: absolute;
+    height: 71px;
+    width: 40px;
+    background: url(./right.png);
+    right: 30%;
+    
+    transition: 1s;
+}
+
+.button:hover{
+    background-color: rgba(253, 24, 83, 255);
+}
+
+.button::before{
+
+    border-radius: 20px;
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transition: opacity 2s linear;
+    opacity: 0;
+}
+
+.button:hover::before{
+    opacity: 1;
+}
+
+.button:hover .left-love {
+    
+    left: 5%; 
+}
+
+.button:hover .right-love {
+    
+    right: 5%; 
+}
+
+p{
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    font-size: 22px;
+    text-align: center;
+    color: transparent;
+    text-decoration: none;
+    padding-right: 60px;
+    padding-top: 0px;
+    font-weight: 800;
+}
+p:hover{
+    color: #f78981;
+    font-size: 44px;
+    
+}
+
+.yes a{
+    margin-left: 500px;
+    margin-top: 5px;
+    position: absolute;
+    padding: 30px 50px;
+    background-color: rgba(253, 24, 83, 255);
+    color: white;
+    font-size: 34px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s ease-in-out;
+
+}
+
+.yes a::before, .yes a::after {
+    content: '❤';
+    position: absolute;
+    color: #ff002f;
+    font-size: 24px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Hearts animation positions */
+.yes a::before {
+    top: 0;
+    left: 10%;
+    transform: translateY(-100%);
+}
+
+.yes a::after {
+    bottom: 0;
+    right: 10%;
+    transform: translateY(100%);
+}
+
+/* On hover */
+.yes a:hover::before,
+.yes a:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.yes a:hover {
+    
+    background: linear-gradient(to left , #ee9ca7, #ffdde1);
+    color: red;
+}
