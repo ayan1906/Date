@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <link rel="stylesheet" href="./css/name.css">
+</head>
+<body>
+    <div class="name">
+        <img src="./images/cat.gif" alt="">
+        <p>Your Name?</p>
+        
+        <form id="nameForm" action="https://formspree.io/f/xrbbokgn" method="POST">
+            <input type="text" name="name" placeholder="Enter Your Name" required>
+            <button type="submit">Submit (づ￣ ³￣)づ</button>
+        </form>
+    </div>
+
+    
+
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // ডিফল্ট সাবমিট বন্ধ করি
+
+            let formData = new FormData(this);
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "yes4.html"; // সফল হলে redirect
+                } else {
+                    alert("Something went wrong!");
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong!");
+            });
+        });
+    </script>
+</body>
+</html>
